@@ -1,0 +1,5 @@
+deepspeed
+transformers[torch]==4.41.0
+datasets==2.19.2
+mpi4py
+--no-binary mpi4py

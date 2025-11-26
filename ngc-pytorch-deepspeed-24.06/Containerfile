@@ -1,0 +1,6 @@
+FROM nvcr.io/nvidia/pytorch:24.06-py3
+MAINTAINER fcalvo Flavio.Calvo@unil.ch
+
+USER root
+
+RUN apt update && apt install -y python3.10-venv && rm -rf /var/lib/apt/lists/*

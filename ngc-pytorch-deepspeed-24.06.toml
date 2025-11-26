@@ -1,0 +1,22 @@
+#image = "nvcr.io#nvidia/pytorch:24.06-py3"
+image = "./ngc-pytorch-deepspeed-24.06/ngc-pytorch-deepspeed-24.06.sqsh"
+
+mounts = [
+    "/capstor",
+    "/iopsstor",
+    "/dev/shm/${USER}",
+    "${HOME}/.ssh",
+    "${HOME}/workdir"
+] 
+
+workdir = "${HOME}/workdir"
+
+[annotations]
+com.hooks.aws_ofi_nccl.enabled = "true" 
+com.hooks.aws_ofi_nccl.variant = "cuda12"
+
+[env]
+NCCL_DEBUG = "INFO" 
+CUDA_CACHE_DISABLE = "1" 
+TORCH_NCCL_ASYNC_ERROR_HANDLING = "1" 
+MPICH_GPU_SUPPORT_ENABLED = "0" 
